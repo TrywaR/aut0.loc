@@ -4,10 +4,10 @@
  */
 class config
 {
-  static $user = 'trywar4y_aut0';
-  static $password = 'Et%45qFY';
+  static $user = '';
+  static $password = '';
   static $host = 'localhost';
-  static $db = 'trywar4y_aut0';
+  static $db = '';
   static $site_url = 'aut0.trywar.ru';
   static $site_port = 'https://';
   static $arrConfig = [];
