@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: aut0
+  description: 'Easy API interface on PHP'
+  version: '1'
+servers:
+  -
+    url: aut0.trywar.ru/core/api/
+    description: 'Easy API interface on PHP'
+paths:
+  /core/api/:
+    get:
+      summary: 'Show users'
+      operationId: GetUsers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                table:
+                  description: 'Table name in mySQL '
+                  type: string
+                  example: users
+                action:
+                  description: Event
+                  type: string
+                  example: show
+                id:
+                  description: 'User id if need singl result'
+                  type: integer
+                  example: '2'
+              type: object
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  id: { type: integer }
+                  name: { type: string }
+                  email: { type: string }
+                  password: { type: string }
+                  role: { type: integer }
+                type: object
+                example:
+                  data: { id: '2', name: User, email: user@email.com, password: '****', role: '1' }
+        '404':
+          description: 'Elems not found'
+    post:
+      summary: 'Add user'
+      operationId: PostUsers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                table:
+                  description: 'Table name in mySQL '
+                  type: string
+                  example: users
+                action:
+                  description: Event
+                  type: string
+                  example: show
+                id:
+                  description: 'User id'
+                  type: integer
+                  example: '2'
+                name:
+                  description: 'User name'
+                  type: string
+                  example: User
+                email:
+                  description: 'User email'
+                  type: string
+                  example: user@email.com
+                role:
+                  description: 'User role, 0 - default, 1 - manager, 2 - admin'
+                  type: integer
+                  example: '0'
+              type: object
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string }
+                type: object
+                example:
+                  message: 'Success post!'

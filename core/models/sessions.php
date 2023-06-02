@@ -1,4 +1,7 @@
 <?php
+/**
+ * Sessions work and token
+ */
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 

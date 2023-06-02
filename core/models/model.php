@@ -1,4 +1,7 @@
 <?php
+/**
+ * Main model for all
+ */
 class model
 {
     public $id = '';

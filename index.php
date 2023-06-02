@@ -17,6 +17,7 @@ $arrNavs = [
     '/login/' => array('title'=>'Login','access'=>-1),
     '/registration/' => array('title'=>'Registration','access'=>-1),
     '/api/' => array('access'=>1),
+    '/api/docs/' => array('access'=>-1),
 ];
 if ( $_SERVER['REDIRECT_URL'] ) $arrPage = $arrNavs[$_SERVER['REDIRECT_URL']];
 else $arrPage = $arrNavs['/'];
@@ -55,6 +56,9 @@ $sTable = $oRequest->table ? $oRequest->table : 'default';
 
 // Определяем что открыть
 switch ($_SERVER['REDIRECT_URL']) {
+    case '/api/docs/';
+        include_once 'pages/api/docs/index.php';
+        break;
     case '/api/';
         // Проверка доступа
         $bAccessLevel = false;
